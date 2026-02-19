@@ -12,13 +12,7 @@ class NewsApiController extends Controller {
     }
 
     public function store(Request $request) {
-        $data = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'nullable'
-        ]);
-
-        return News::create($data);
+        return News::create($request->all());
     }
 
     public function show($id) {
